@@ -514,17 +514,15 @@
 			if (__.movement.velocity_vector.has_magnitude()) {
 				draw_set_alpha(_track_alpha);
 				surface_set_target(objc_world.__.ground_surface_tracks);
-				
-				var _facing_dir = __.movement.facing_vector.get_direction();
 			
 				// left tire (i think?)
-				var _tire_left_x = x + __.movement.rear_axel.x + lengthdir_x(_axel_length, _facing_dir + 90);
-				var _tire_left_y = y + __.movement.rear_axel.y + lengthdir_y(_axel_length, _facing_dir + 90);
+				var _tire_left_x = movement_get_rear_left_wheel_x();
+				var _tire_left_y = movement_get_rear_left_wheel_y();
 				draw_circle_color(_tire_left_x, _tire_left_y, _track_size, _track_color, _track_color, false);
 			
 				// right tire
-				var _tire_right_x = x + __.movement.rear_axel.x + lengthdir_x(_axel_length, _facing_dir - 90);
-				var _tire_right_y = y + __.movement.rear_axel.y + lengthdir_y(_axel_length, _facing_dir - 90);
+				var _tire_right_x = movement_get_rear_right_wheel_x();
+				var _tire_right_y = movement_get_rear_right_wheel_y();
 				draw_circle_color(_tire_right_x, _tire_right_y, _track_size, _track_color, _track_color, false);
 			
 				surface_reset_target();
@@ -549,10 +547,70 @@
 	#endregion
 	#region movement
 	
+		movement_get_front_axel_x		 = function() {
+			return phy_position_x + __.movement.front_axel.x;
+		};
+		movement_get_front_axel_y		 = function() {
+			return phy_position_y + __.movement.front_axel.y;
+		};
+		movement_get_rear_axel_x		 = function() {
+			return phy_position_x + __.movement.rear_axel.x;	
+		};
+		movement_get_rear_axel_y		 = function() {
+			return phy_position_y + __.movement.rear_axel.y;	
+		};
+		movement_get_front_left_wheel_x  = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() + 90;
+			return movement_get_front_axel_x() + lengthdir_x(_axel_len, _facing_dir);
+		};
+		movement_get_front_left_wheel_y  = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() + 90;
+			return movement_get_front_axel_y() + lengthdir_y(_axel_len, _facing_dir);
+		};
+		movement_get_front_right_wheel_x = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() - 90;
+			return movement_get_front_axel_x() + lengthdir_x(_axel_len, _facing_dir);
+		};
+		movement_get_front_right_wheel_y = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() - 90;
+			return movement_get_front_axel_y() + lengthdir_y(_axel_len, _facing_dir);
+		};
+		movement_get_rear_left_wheel_x	 = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() + 90;
+			return movement_get_rear_axel_x() + lengthdir_x(_axel_len, _facing_dir);
+		};
+		movement_get_rear_left_wheel_y	 = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() + 90;
+			return movement_get_rear_axel_y() + lengthdir_y(_axel_len, _facing_dir);
+		};
+		movement_get_rear_right_wheel_x  = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() - 90;
+			return movement_get_rear_axel_x() + lengthdir_x(_axel_len, _facing_dir);
+		};
+		movement_get_rear_right_wheel_y  = function() {
+			var _axel_len	= __.movement.axel_length * 0.5;
+			var _facing_dir = movement_get_facing_dir() - 90;
+			return movement_get_rear_axel_y() + lengthdir_y(_axel_len, _facing_dir);
+		};
+		movement_get_facing_dir			 = function(_drift_angle = true) {
+			if (_drift_angle) {
+				return phy_rotation - __.drift.image_angle;
+			}
+			return phy_rotation;	
+		};
+	
 		// private
 		__[$ "movement"] ??= {};
 		with (__.movement) {
 			wheel_base					= 16;
+			axel_length					= 10;
 			steer_angle					= 5;
 			scale						= 0.8;
 			max_speed					= 2.500 * scale;
@@ -700,7 +758,9 @@
 					
 					// check for collision between old and new donut triggers
 					var _donuts = false;
-					if (_old != undefined) {
+					if (_old != undefined
+					&&	_old.car == _new.car
+					) {
 						with (_new) {
 							if (place_meeting(x, y, _old)) {
 								_donuts = true;
@@ -726,13 +786,24 @@
 					phy_position_y,
 					depth,
 					obj_car_donut_check,
-					{ car: self },
 				);
+				_donut.car = self;
 				return _donut;
+			});
+			create_near_miss_mask  = method(_self, function() {
+				var _mask = instance_create_depth(
+					phy_position_x,
+					phy_position_y,
+					depth + 1,
+					obj_car_near_miss_mask,
+				);
+				_mask.car = self;
+				return _mask;
 			});
 			clear_donut_trigger	   = method(_self, function() {
 				if (__.drift.donut_trigger != undefined) {
 					instance_destroy(__.drift.donut_trigger);	
+					__.drift.donut_trigger = undefined;
 				}
 			});
 			update_multiplier	   = method(_self, function() {
@@ -797,30 +868,41 @@
 				}	
 			});
 			
-			drifting		 = false;
-			hold_time		 = 0;
-			penalty_timer	 = 0;
-			points_current	 = 0;
-			points_scored	 = 0;
-			points_alpha	 = 1;
-			multiplier_time	 = 0;
-			multiplier		 = 1;
-			donuts_active	 = false;
-			donut_check_rate = 1 * SECOND;
-			donut_trigger	 = undefined;
-			
+			drifting		   = false;
+			hold_time		   = 0;
+			penalty_timer	   = 0;
+			points_current	   = 0;
+			points_scored	   = 0;
+			points_alpha	   = 1;
+			multiplier_time	   = 0;
+			multiplier		   = 1;
+			donuts_active	   = false;
+			donut_check_rate   = 1 * SECOND;
+			donut_trigger	   = undefined;
+			near_miss_mask	   = undefined;
 			image_angle_amount = 30;
 			image_angle_target = 0;
 			image_angle		   = image_angle_target;	
 		};
 		
 		// events
+		on_initialize(function() {
+			__.drift.near_miss_mask = __.drift.create_near_miss_mask();
+		});
 		on_update	 (function() {
 			__.drift.update_penalty_timer();
 			__.drift.update_render_angle();
 		});
 		on_room_start(function() {
 			__.drift.points_alpha = 0;
+		});
+		on_cleanup	 (function() {
+			if (__.drift.donut_trigger  != undefined) {
+				instance_destroy(__.drift.donut_trigger);	
+			}
+			if (__.drift.near_miss_mask != undefined) {
+				instance_destroy(__.drift.near_miss_mask);	
+			}
 		});
 	
 	#endregion
@@ -877,11 +959,12 @@
 	// events
 	on_render(function() {
 		var _s = __.collision.spring.get();
-		draw_sprite_stacked(x, y, 1 + _s, -1, __.drift.image_angle);
+		draw_sprite_stacked(phy_position_x, phy_position_y, 1 + _s, -1, __.drift.image_angle);
 		__.drift.render_score();
 	});
 	
 	////////////////
 		
 	initialize();
+	
 	
