@@ -1,0 +1,25 @@
+	
+	core 1: 
+		bonus for near misses
+		spark particles for drift multiplier
+		
+	core 2:
+		square drift zones
+		moving obstacles
+	
+	cleanup:
+		objc_points state machine & radio events
+		objc_veil state machine & radio events
+	
+	bonus:
+		ending stats screen
+		proper settings screen
+		leaderboards
+		race checkpoints
+		multiplayer/coop
+		car customization
+		mobile export
+		reverse
+		achievements
+	
+	

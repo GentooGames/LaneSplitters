@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ActiveConfig="Default" Platform="Windows" Runtime="VM" Device="Default">
+	<Desktop x="0" y="23" width="1920" height="1057" id="19" title="LaneSplitters - GameMaker-LTS" windowState="Maximized">
+		<Workspaces>
+			<Workspace active="False" chain="True" title="Workspace 1" localise_title="Workspace_TabTitle" localise_arguments="[&#xD;&#xA;    &quot;1&quot;&#xD;&#xA;]" workspace_offset="[1273, 1429]" workspace_scale="1" />
+			<Workspace active="False" chain="False" title="todo" localise_title="DocumentWindow_Title_Note" localise_arguments="[&#xD;&#xA;    &quot;todo&quot;&#xD;&#xA;]" workspace_offset="[0, 0]" workspace_scale="1">
+				<Module Command="DocumentWindow_RestoreLayout" WorkspaceOwner="true">
+					<DocumentWindow columns="1" fullscreen="True" activeTab="0" isActive="False">
+						<Script column="0" file="${project_dir}\notes\todo\todo.txt" resource="todo" overridden_title="False" view_readonly="False" />
+					</DocumentWindow>
+				</Module>
+			</Workspace>
+			<Workspace active="False" chain="False" title="CAR" localise_title="" user_edited_title="True" workspace_offset="[0, 0]" workspace_scale="1">
+				<Module Command="DocumentWindow_RestoreLayout" WorkspaceOwner="true">
+					<DocumentWindow columns="2" columnSizes="39.72603%;60.27397%" fullscreen="True" activeTab="0" isActive="False">
+						<Script column="0" file="${project_dir}\objects\obj_car\Create_0.gml" resource="obj_car" subResource="0_0" overridden_title="False" view_readonly="False" />
+						<Script column="1" file="${project_dir}\scripts\car_states\car_states.gml" resource="car_states" overridden_title="False" view_readonly="False" />
+					</DocumentWindow>
+				</Module>
+			</Workspace>
+			<Workspace active="True" chain="False" title="HUD" localise_title="" user_edited_title="True" workspace_offset="[0, 0]" workspace_scale="1">
+				<Module Command="DocumentWindow_RestoreLayout" WorkspaceOwner="true">
+					<DocumentWindow columns="3" columnSizes="1*;1*;1*" fullscreen="True" activeTab="0" isActive="False">
+						<Script column="0" file="${project_dir}\objects\objc_time\Create_0.gml" resource="objc_time" subResource="0_0" overridden_title="False" view_readonly="False" />
+						<Script column="1" file="${project_dir}\objects\objc_points\Create_0.gml" resource="objc_points" subResource="0_0" overridden_title="False" view_readonly="False" />
+						<Script column="2" file="${project_dir}\objects\objc_veil\Create_0.gml" resource="objc_veil" subResource="0_0" overridden_title="False" view_readonly="False" />
+					</DocumentWindow>
+				</Module>
+			</Workspace>
+		</Workspaces>
+		<Dock state="Expanded" type="eLeft" restore_size="258.94406dpi_px" active_tab="1">
+			<DockTab localise_title="Inspector_WindowTitle" cell_sizes="[1000]" layout_id="dock_tab_1" layout_guid="9ca0c8d0-328f-4dd5-9ebf-c7005a72d90f">
+				<Module Command="open_inspector">
+					<Inspector resName="freestyle">
+						<Window left="0px" right="" top="0px" bottom="" width="340dpi_px" height="600dpi_px" flags="Default" title="Inspector: freestyle,figure8,shipment,..." localise_title="Inspector_WindowTitleArg" />
+					</Inspector>
+				</Module>
+			</DockTab>
+			<DockTab localise_title="ResourceTree_Title" cell_sizes="[1000]" layout_id="dock_tab_1" layout_guid="323a0a18-28e9-4154-9cac-1cf295a0ddb0">
+				<Module Command="open_asset_browser">
+					<AssetBrowser sort="Custom" foldersFirst="True" zoom="100">
+						<Window left="" right="" top="" bottom="" width="370dpi_px" height="463dpi_px" flags="Default" title="Asset Browser" localise_title="AssetBrowser_Title" />
+					</AssetBrowser>
+				</Module>
+			</DockTab>
+		</Dock>
+		<Dock state="Collapsed" type="eBottom" restore_size="199.79997dpi_px" active_tab="1">
+			<DockTab localise_title="OutputPanel_Output" cell_sizes="[1000]" layout_id="dock_tab_1" layout_guid="46532ac1-a449-40cf-a355-e0351fe231f0">
+				<Module Command="open_output_panel">
+					<Window left="0px" right="" top="0px" bottom="" width="900px" height="240px" flags="Default" title="Output" localise_title="OutputPanel_Title" />
+				</Module>
+			</DockTab>
+			<DockTab localise_title="OutputPanel_SearchResults" cell_sizes="[1000]" layout_id="dock_tab_2" layout_guid="896e1c34-171b-4441-979f-cc9a3d5162f7">
+				<Module Command="open_search_output_panel">
+					<Window left="0px" right="" top="0px" bottom="" width="900px" height="240px" flags="Default" title="Search Results" localise_title="OutputPanel_SearchResults" />
+				</Module>
+			</DockTab>
+			<DockTab localise_title="OutputPanel_SourceControl" cell_sizes="[1000]" layout_id="dock_tab_3" layout_guid="00e3dc58-f16c-49c4-b638-be156fa2c1e7">
+				<Module Command="open_sc_output_panel">
+					<Window left="0px" right="" top="0px" bottom="" width="900px" height="240px" flags="Default" title="Source Control" localise_title="OutputPanel_SourceControl" />
+				</Module>
+			</DockTab>
+			<DockTab localise_title="Breakpoints" cell_sizes="[1000]" layout_id="dock_tab_4" layout_guid="edc13237-f1f5-41b8-b66d-e2e3af4e7734">
+				<Module Command="open_breakpoint_mgr">
+					<Window left="0px" right="" top="0px" bottom="" width="900px" height="240px" flags="Default" title="Breakpoints" localise_title="Breakpoints" />
+				</Module>
+			</DockTab>
+			<DockTab localise_title="CompileErrors" cell_sizes="[1000]" layout_id="dock_tab_5" layout_guid="4cd32a96-e060-42a3-8c07-294e6bcf7c89">
+				<Module Command="show_compile_errors">
+					<Window left="0px" right="" top="0px" bottom="" width="900px" height="240px" flags="Default" title="Compile Errors" localise_title="CompileErrors" />
+				</Module>
+			</DockTab>
+			<DockTab localise_title="SyntaxErrors" cell_sizes="[1000]" layout_id="dock_tab_6" layout_guid="6f783802-6ef0-4f25-b209-92830eba1f82">
+				<Module Command="show_syntax_errors">
+					<Window left="0px" right="" top="0px" bottom="" width="900px" height="240px" flags="Default" title="Syntax Errors" localise_title="SyntaxErrors" />
+				</Module>
+			</DockTab>
+		</Dock>
+	</Desktop>
+	<FoldRegions>
+		<FoldState docFile="objects/obj_iceberg/Create_0.gml" foldedRegions="19" />
+		<FoldState docFile="objects/objc_time/Create_0.gml" foldedRegions="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29" />
+		<FoldState docFile="objects/objc_points/Create_0.gml" foldedRegions="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" />
+		<FoldState docFile="scripts/car_states/car_states.gml" foldedRegions="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18" />
+		<FoldState docFile="objects/obj_car/Create_0.gml" foldedRegions="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,86,87,88,90,91,93,95,96,97,98,99,100,102,103,104,108,116,120,121,124,126,129,132,139,140" />
+	</FoldRegions>
+</Project>
