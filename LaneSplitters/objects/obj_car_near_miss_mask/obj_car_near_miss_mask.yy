@@ -7,7 +7,7 @@
     "path": "sprites/spr_car_near_miss_mask/spr_car_near_miss_mask.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

@@ -7,7 +7,7 @@
 	//   \/_____/ \/_____/ \/_____/ \/_____/ \/_/\/_/ \/_____/ //
 	//                                                         //
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-	#macro DEV				true
+	#macro DEV				false
 	#macro GAME_NAME		"Dead Tire"
 	#macro GAME_VERSION		"v0.2.1"
 	

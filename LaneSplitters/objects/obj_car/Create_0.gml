@@ -782,20 +782,20 @@
 			});
 			check_near_miss		   = method(_self, function() {
 				
-				// check for mask collision
-				var _crate = undefined;
-				with (__.drift.near_miss_mask) {
-					_crate = instance_place(x, y, obj_crate);
-				};
-				
-				// collision
-				if (_crate != noone) {
-					// if new collision, trigger near miss
-					if (_crate != __.drift.near_miss_object) {
-						__.drift.near_miss_object = _crate;
-					}
-				}
-				// no collision
+			//	// check for mask collision
+			//	var _crate = undefined;
+			//	with (__.drift.near_miss_mask) {
+			//		_crate = instance_place(x, y, obj_crate);
+			//	};
+			//	
+			//	// collision
+			//	if (_crate != noone) {
+			//		// if new collision, trigger near miss
+			//		if (_crate != __.drift.near_miss_object) {
+			//			__.drift.near_miss_object = _crate;
+			//		}
+			//	}
+			//	// no collision
 			//	else if (__.drift.near_miss_object != noone) {
 			//		
 			//		var _crate	= __.drift.near_miss_object;
@@ -809,9 +809,9 @@
 			//		// reset
 			//		__.drift.near_miss_object = noone;
 			//	}
-				else {
-					__.drift.near_miss_object = noone;
-				}	
+			//	else {
+			//		__.drift.near_miss_object = noone;
+			//	}	
 				
 			});
 			create_donut_trigger   = method(_self, function() {
