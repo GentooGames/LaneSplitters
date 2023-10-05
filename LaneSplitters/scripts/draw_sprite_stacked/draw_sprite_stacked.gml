@@ -3,7 +3,7 @@
 		
 		// draw shadow
 		if (_draw_shadow) {
-			surface_set_target(objc_world.__.ground_surface_shadows);
+			surface_set_target(objc_world.__.surface_shadows);
 			for (var _i = 1, _len = image_number; _i < _len; _i++) {
 				draw_sprite_ext(
 					sprite_index,

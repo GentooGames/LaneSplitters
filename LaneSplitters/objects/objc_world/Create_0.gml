@@ -21,10 +21,10 @@
 		);
 	};
 	clear_tire_tracks = function() {
-		if (!surface_exists(__.ground_surface_tracks)) {
-			__.ground_surface_tracks = surface_create(room_width, room_height);	
+		if (!surface_exists(__.surface_tracks)) {
+			__.surface_tracks = surface_create(room_width, room_height);	
 		}
-		surface_set_target(__.ground_surface_tracks);
+		surface_set_target(__.surface_tracks);
 		draw_clear_alpha(c_black, 0);
 		surface_reset_target();
 		return self;
@@ -32,12 +32,13 @@
 	
 	// private
 	with (__) {
-		shadow_alpha		   = 0.6;
-		shadow_strength		   = 2;
-		shadow_direction	   = 340;
-		tracks_alpha		   = 0.8;
-		ground_surface_shadows = surface_create(room_width, room_height);	
-		ground_surface_tracks  = surface_create(room_width, room_height);
+		shadow_alpha	 = 0.6;
+		shadow_strength	 = 2;
+		shadow_direction = 340;
+		tracks_alpha	 = 0.8;
+		surface_shadows  = surface_create(room_width, room_height);	
+		surface_tracks   = surface_create(room_width, room_height);
+		surface_info	 = surface_create(room_width, room_height);
 	};
 	
 	// events
@@ -49,19 +50,30 @@
 	});
 	on_render	 (function() {
 		// tire tracks
-		if (!surface_exists(__.ground_surface_tracks)) {
-			__.ground_surface_tracks = surface_create(room_width, room_height);		
+		if (!surface_exists(__.surface_tracks)) {
+			__.surface_tracks = surface_create(room_width, room_height);		
 		}
-		draw_surface_ext(__.ground_surface_tracks, 0, 0, 1, 1, 0, c_white, __.tracks_alpha);
+		draw_surface_ext(__.surface_tracks, 0, 0, 1, 1, 0, c_white, __.tracks_alpha);
 		
 		// shadows
-		if (!surface_exists(__.ground_surface_shadows)) {
-			__.ground_surface_shadows = surface_create(room_width, room_height);		
+		if (!surface_exists(__.surface_shadows)) {
+			__.surface_shadows = surface_create(room_width, room_height);		
 		}
-		draw_surface_ext(__.ground_surface_shadows, 0, 0, 1, 1, 0, c_white, __.shadow_alpha);
+		draw_surface_ext(__.surface_shadows, 0, 0, 1, 1, 0, c_white, __.shadow_alpha);
 		
-		// wipe surface
-		surface_set_target(__.ground_surface_shadows);
+		// info
+		if (!surface_exists(__.surface_info)) {
+			__.surface_info = surface_create(room_width, room_height);		
+		}
+		draw_surface_ext(__.surface_info, 0, 0, 1, 1, 0, c_white, 1);
+		
+		// wipe tracks
+		surface_set_target(__.surface_shadows);
+		draw_clear_alpha(c_black, 0);
+		surface_reset_target();
+		
+		// wipe info
+		surface_set_target(__.surface_info);
 		draw_clear_alpha(c_black, 0);
 		surface_reset_target();
 	});

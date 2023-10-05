@@ -185,6 +185,7 @@
 					
 					__.drift.hold_time++;
 					__.drift.check_donuts();
+					__.drift.check_near_miss();
 					__.drift.update_multiplier();
 					__.drift.check_score_zone();
 					__.drift.check_score_bonus_zone();
@@ -194,18 +195,20 @@
 		        },
 		        draw:  function() {
 		            __.state.fsm.inherit();
+					__.drift.render_near_miss();
 		        },
 		        leave: function() {
 		            __.state.fsm.inherit();
 					if (__.drift.check_success()) {
 						__.drift.success();
 					}
-					__.drift.drifting		 = false;
-					__.drift.hold_time		 = 0;
-					__.drift.points_current  = 0;	
-					__.drift.multiplier		 = 1;
-					__.drift.multiplier_time = 0;
-					__.drift.donuts_active	 = false;
+					__.drift.drifting		  = false;
+					__.drift.hold_time		  = 0;
+					__.drift.points_current	  = 0;	
+					__.drift.multiplier		  = 1;
+					__.drift.multiplier_time  = 0;
+					__.drift.donuts_active	  = false;
+					__.drift.near_miss_object = noone;
 					__.drift.clear_donut_trigger();
 		        }
 		    };

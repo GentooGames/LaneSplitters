@@ -513,7 +513,7 @@
 			
 			if (__.movement.velocity_vector.has_magnitude()) {
 				draw_set_alpha(_track_alpha);
-				surface_set_target(objc_world.__.ground_surface_tracks);
+				surface_set_target(objc_world.__.surface_tracks);
 			
 				// left tire (i think?)
 				var _tire_left_x = movement_get_rear_left_wheel_x();
@@ -780,6 +780,40 @@
 					__.drift.donut_trigger = _new;
 				}
 			});
+			check_near_miss		   = method(_self, function() {
+				
+				// check for mask collision
+				var _crate = undefined;
+				with (__.drift.near_miss_mask) {
+					_crate = instance_place(x, y, obj_crate);
+				};
+				
+				// collision
+				if (_crate != noone) {
+					// if new collision, trigger near miss
+					if (_crate != __.drift.near_miss_object) {
+						__.drift.near_miss_object = _crate;
+					}
+				}
+				// no collision
+			//	else if (__.drift.near_miss_object != noone) {
+			//		
+			//		var _crate	= __.drift.near_miss_object;
+			//		var _dist	=  point_distance(x, y, _crate.x, _crate.y);
+			//		var _meters = _dist * 0.18;
+			//		var _text	= "near miss!\n" + string(_meters);
+			//		
+			//		// score points
+			//		floating_text_create(_crate.x, _crate.y, depth - 1, _text, #ffa9a9, 0.4, true);
+			//		
+			//		// reset
+			//		__.drift.near_miss_object = noone;
+			//	}
+				else {
+					__.drift.near_miss_object = noone;
+				}	
+				
+			});
 			create_donut_trigger   = method(_self, function() {
 				var _donut = instance_create_depth(
 					phy_position_x,
@@ -867,6 +901,13 @@
 					} 
 				}	
 			});
+			render_near_miss	   = method(_self, function() {
+				if (__.drift.near_miss_object != noone) {
+					surface_set_target(objc_world.__.surface_info);
+					draw_line(x, y, __.drift.near_miss_object.x, __.drift.near_miss_object.y);
+					surface_reset_target();
+				}
+			});
 			
 			drifting		   = false;
 			hold_time		   = 0;
@@ -880,6 +921,7 @@
 			donut_check_rate   = 1 * SECOND;
 			donut_trigger	   = undefined;
 			near_miss_mask	   = undefined;
+			near_miss_object   = noone;
 			image_angle_amount = 30;
 			image_angle_target = 0;
 			image_angle		   = image_angle_target;	
