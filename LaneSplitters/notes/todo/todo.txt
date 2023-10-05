@@ -1,17 +1,15 @@
 	
 	core 1: 
-		bonus for near misses
-		spark particles for drift multiplier
-		
-	core 2:
-		square drift zones
 		moving obstacles
+		spark particles for drift multiplier
+		square drift zones
 	
 	cleanup:
 		objc_points state machine & radio events
 		objc_veil state machine & radio events
 	
 	bonus:
+		points for near misses
 		ending stats screen
 		proper settings screen
 		leaderboards
