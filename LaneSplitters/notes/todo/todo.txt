@@ -1,6 +1,6 @@
 	
 	core 1: 
-		moving obstacles
+		moving obstacles (use GM path editor in room)
 		spark particles for drift multiplier
 		square drift zones
 	

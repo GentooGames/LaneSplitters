@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "world",
-    "path": "folders/world.yy",
+    "name": "game",
+    "path": "folders/game.yy",
   },
 }
