@@ -1,6 +1,7 @@
 	
 	core 1: 
 		moving obstacles (use GM path editor in room)
+		heavier physics environmental objects
 		spark particles for drift multiplier
 		square drift zones
 	
