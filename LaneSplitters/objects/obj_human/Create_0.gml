@@ -20,7 +20,7 @@
 	turn_speed	  = random_range(0.1, 0.4);
 	turn_target	  = image_angle;
 	
-	explode = function() {
+	explode = function(_car) {
 		
 		// core blood stain
 		var _core = instance_create_depth(x, y, depth - 1, obj_blood);	
@@ -39,8 +39,8 @@
 		
 		// sfx
 		var _sfx_death = choose(sfx_death_1, sfx_death_2, sfx_death_3);
-		obj_car.audio_play(_sfx_death);
-		obj_car.audio_play(sfx_impact_human, false, 0);
+		_car.audio_play(_sfx_death);
+		_car.audio_play(sfx_impact_human, false, 0);
 		
 		instance_destroy();	
 	};

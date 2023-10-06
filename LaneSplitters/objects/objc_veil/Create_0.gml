@@ -112,16 +112,16 @@
 			draw_set_alpha(1.0);
 		
 			// highlight car
-			if (instance_exists(obj_car)) {
+			with (obj_car) {
 				gpu_set_blendmode(bm_subtract);
 				draw_circle(
-					objc_camera.x_world_to_gui(obj_car.x),
-					objc_camera.y_world_to_gui(obj_car.y),
-					__.radius,
+					objc_camera.x_world_to_gui(x),
+					objc_camera.y_world_to_gui(y),
+					other.__.radius,
 					false
 				);
 				gpu_set_blendmode(bm_normal);
-			}
+			};
 		}
 		
 		////////////////////////////////

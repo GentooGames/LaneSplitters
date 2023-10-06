@@ -44,9 +44,8 @@
 			
 		// events
 		on_initialize(function() {
-			objc_game.player_get(0).character_assign(self);
-			instance_create_depth(x, y, depth - 1, obj_camera_focus);
-			objc_camera.focus_set_target(obj_camera_focus);
+			var _player = objc_game.player_get(0);
+			_player.car_assign(self);
 		});
 		
 	#endregion
@@ -473,6 +472,25 @@
 		});
 	
 	#endregion
+	#region camera
+	
+		// public
+	
+		// private
+		__[$ "camera"] ??= {};
+		with (__.camera) {
+			focus_object = undefined;
+		};
+		
+		// events
+		on_initialize(function() {
+			var _focus_object = instance_create_depth(x,y,depth - 1,obj_camera_focus);
+			_focus_object.car = self;
+			__.camera.focus_object = _focus_object;
+			objc_camera.focus_set_target(_focus_object);
+		});
+	
+	#endregion
 	#region particles
 	
 		// public
@@ -666,12 +684,12 @@
 			});
 			with_cone  = method(_self, function() {
 				if (input_lock_is_unlocked()) {
-					objc_points.penalty_cone_hit();
+					objc_points.penalty_cone_hit(self);
 				}
 			});
 			with_human = method(_self, function() {
 				if (input_lock_is_unlocked()) {
-					objc_points.penalty_human_hit();
+					objc_points.penalty_human_hit(self);
 					__.collision.spring.fire(0.2);
 				}
 			});
@@ -718,7 +736,7 @@
 		with (__.drift) {
 			success				   = method(_self, function() {
 				var _points = ceil(__.drift.points_current * __.drift.multiplier);
-				objc_points.score_drift(_points);
+				objc_points.score_drift(self, _points);
 				__.drift.points_scored = _points;
 			});
 			failed				   = method(_self, function() {

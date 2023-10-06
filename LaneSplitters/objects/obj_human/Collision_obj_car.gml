@@ -1,3 +1,4 @@
 
 	// physics collision
-	explode();
+	explode(other);
+	

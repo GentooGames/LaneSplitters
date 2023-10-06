@@ -13,7 +13,9 @@
 	var _self = self;
 	
 	open	= function() {
-		obj_car.input_lock_set("menu_open");
+		with (obj_car) { 
+			input_lock_set("menu_open"); 
+		};
 		objc_veil.close();
 		show();
 		activate();
@@ -21,8 +23,9 @@
 		return self;
 	};
 	close	= function() {
-		
-		obj_car.input_lock_remove("menu_open");
+		with (obj_car) {
+			input_lock_remove("menu_open");
+		};
 		objc_veil.open();
 		hide();
 		deactivate();

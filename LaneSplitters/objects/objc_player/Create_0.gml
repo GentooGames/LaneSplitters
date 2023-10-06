@@ -23,7 +23,7 @@
 	#region input
 	
 		input_left_pressed		= function(_takes_input = true) {
-			return _takes_input && iceberg.input.check_pressed(input_get_port_index(), "left");
+			return _takes_input && iceberg.input.check_pressed(input_get_port__index(), "left");
 		};
 		input_left_down			= function(_takes_input = true) {
 			return _takes_input && iceberg.input.check_down(input_get_port_index(), "left");
@@ -185,34 +185,34 @@
 		});
 	
 	#endregion
-	#region character
+	#region car
 		
 		// public
-		character_create = function(_x = 0, _y = 0, _config = {}) {
+		car_create = function(_x = 0, _y = 0, _config = {}) {
 		
 			// enforced params
 			_config[$ "player"] ??= self;
 		
 			var _char = instance_create_depth(_x, _y, 0, obj_car, _config);
-			__.character   = _char;
-			__.character.initialize();
-			__.log("character created", IB_LOG_FLAG.PLAYER);
+			__.car = _char;
+			__.car.initialize();
+			__.log("car created", IB_LOG_FLAG.PLAYER);
 			
 			return _char;
 		};
-		character_assign = function(_character) {
-			__.character = _character;
-			__.character.player_set(self);
-			__.character.initialize();
+		car_assign = function(_character) {
+			__.car = _character;
+			__.car.player_set(self);
+			__.car.initialize();
 			return _character;
 		};
-		character_get	 = function() {
-			return __.character;
+		car_get	   = function() {
+			return __.car;
 		};	
 		
 		// private
 		with (__) {
-			character = undefined;
+			car = undefined;
 		};
 		
 	#endregion

@@ -35,26 +35,26 @@
 		}
 		return self;
 	};
-	score_drift		  = function(_amount) {
+	score_drift		  = function(_car, _amount) {
 		__.points += _amount;	
-		obj_car.audio_play(sfx_drift_score);
+		_car.audio_play(sfx_drift_score);
 		return self;
 	};
-	penalty_cone_hit  = function(_penalty = 1) {
+	penalty_cone_hit  = function(_car, _penalty = 1) {
 		__.text_color = #4d80c9;
 		__.points	 -= _penalty;
 		
 		var _interval = 5;
 		if (iceberg.time.do_every_frame(_interval)) {
-			__.text_create("-", _penalty * _interval, __.text_color);
-			obj_car.audio_play(sfx_impact_cone, false, 0);
+			__.text_create(_car, "-", _penalty * _interval, __.text_color);
+			_car.audio_play(sfx_impact_cone, false, 0);
 		}
 		return self;
 	};
-	penalty_human_hit = function(_penalty = 150) {
+	penalty_human_hit = function(_car, _penalty = 150) {
 		__.text_color = #e93841;
 		__.points	 -= _penalty;
-		__.text_create("-", _penalty, __.text_color);
+		__.text_create(_car, "-", _penalty, __.text_color);
 		return self;
 	};
 		
@@ -108,8 +108,8 @@
 	
 	// private
 	with (__) {
-		text_create	= method(_self, function(_sign, _amount, _color = c_white) {
-			floating_text_create(obj_car.x, obj_car.y, obj_car.depth, _sign + string(_amount), _color);
+		text_create	= method(_self, function(_car, _sign, _amount, _color = c_white) {
+			floating_text_create(_car.x, _car.y, _car.depth, _sign + string(_amount), _color);
 		});
 		points		= 0;	
 		points_last	= 0;
