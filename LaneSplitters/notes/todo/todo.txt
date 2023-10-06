@@ -11,7 +11,6 @@
 		--- achievements
 	
 	cleanup:
-		--- should place car spawn points, have objc_world spawn cars
 		--- objc_points state machine & radio events
 		--- objc_veil state machine & radio events
 		

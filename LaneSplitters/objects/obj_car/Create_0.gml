@@ -42,14 +42,6 @@
 			instance = _self[$ "player"] ?? undefined;
 		};
 			
-		// events
-		on_initialize(function() {
-			var _car_index = objc_world.car_get_count();
-			var _player	   = objc_game.player_get(_car_index);
-			_player.car_assign  (self);
-			objc_world.car_stash(self);
-		});
-		
 	#endregion
 	#region input
 

@@ -17,7 +17,6 @@
   ],
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7EBB6C2C_1","properties":[],"isDnd":false,"objectId":{"name":"obj_car","path":"objects/obj_car/obj_car.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.78803635,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":88.43707,"y":113.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_71EDE361_1","properties":[],"isDnd":false,"objectId":{"name":"obj_human","path":"objects/obj_human/obj_human.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":72.0,"y":48.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_51C90CB7_1","properties":[],"isDnd":false,"objectId":{"name":"obj_cone","path":"objects/obj_cone/obj_cone.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":64.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_24F50F70","properties":[],"isDnd":false,"objectId":{"name":"obj_crate","path":"objects/obj_crate/obj_crate.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":15.785822,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":292.0,"y":92.0,},
@@ -54,7 +53,6 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_7EBB6C2C_1","path":"rooms/shipment/shipment.yy",},
     {"name":"inst_71EDE361_1","path":"rooms/shipment/shipment.yy",},
     {"name":"inst_51C90CB7_1","path":"rooms/shipment/shipment.yy",},
     {"name":"inst_24F50F70","path":"rooms/shipment/shipment.yy",},

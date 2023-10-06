@@ -18,7 +18,6 @@
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_31691D28_1","properties":[],"isDnd":false,"objectId":{"name":"obj_crate","path":"objects/obj_crate/obj_crate.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":161.81564,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":228.0,"y":67.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7EBB6C2C_2","properties":[],"isDnd":false,"objectId":{"name":"obj_car","path":"objects/obj_car/obj_car.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":47.131985,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":114.164734,"y":204.66737,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_36873C09_1","properties":[],"isDnd":false,"objectId":{"name":"obj_human","path":"objects/obj_human/obj_human.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":223.65729,"y":220.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7083B295_1","properties":[],"isDnd":false,"objectId":{"name":"obj_cone","path":"objects/obj_cone/obj_cone.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":120.0,"y":87.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5845708C","properties":[],"isDnd":false,"objectId":{"name":"obj_crate","path":"objects/obj_crate/obj_crate.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":40.972664,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":174.0,"y":110.00008,},
@@ -69,7 +68,6 @@
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_31691D28_1","path":"rooms/figure8/figure8.yy",},
-    {"name":"inst_7EBB6C2C_2","path":"rooms/figure8/figure8.yy",},
     {"name":"inst_5252906C_1","path":"rooms/figure8/figure8.yy",},
     {"name":"inst_36873C09_1","path":"rooms/figure8/figure8.yy",},
     {"name":"inst_7083B295_1","path":"rooms/figure8/figure8.yy",},

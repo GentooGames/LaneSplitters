@@ -30,6 +30,15 @@
 	
 	// private
 	with (__) {
+		spawn_cars		  = method(_self, function() {
+			for (var _i = 0, _len = array_length(__.spawns); _i < _len; _i++) {
+				var _spawn		 = __.spawns[_i];
+				var _player_port = _spawn.player;
+				var _player		 = objc_game.player_get(_player_port);
+				var _car		 = _player.car_create(_spawn.x, _spawn.y, { image_angle: _spawn.image_angle });
+				array_push(__.cars, _car);
+			};
+		});
 		track_clear_tires = method(_self, function() {
 			if (!surface_exists(__.surface_tracks)) {
 				__.surface_tracks = surface_create(room_width, room_height);	
@@ -40,6 +49,7 @@
 			return self;
 		});
 		cars			  = [];
+		spawns			  = [];
 		shadow_alpha	  = 0.6;
 		shadow_strength	  = 2;
 		shadow_direction  = 340;
@@ -51,8 +61,21 @@
 	
 	// events
 	on_room_start(function() {
+		
+		// store spawn points
+		__.spawns = [];
+		var _spawns = __.spawns;
+		with (obj_spawn) {
+			array_push(_spawns, self);	
+		};
+		
+		// store car instances
 		__.cars = [];
+		__.spawn_cars();
+		
+		// environmet
 		__.track_clear_tires();
+		
 		if (room_is_track()) {
 			BROADCAST("track_started");
 		}
@@ -90,3 +113,4 @@
 	// ambient sfx
 	audio_play_sound(sfx_ambient_birds, -1, true);
 	audio_play_sound(sfx_ambient_ocean, -1, true);
+	
