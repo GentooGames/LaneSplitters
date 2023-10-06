@@ -2,12 +2,6 @@
 	core 1: 
 		--- moving obstacles (use GM path editor in room)
 		--- heavier physics environmental objects
-	
-	cleanup:
-		--- objc_points state machine & radio events
-		--- objc_veil state machine & radio events
-	
-	bonus:
 		--- changing the size and position of the car's
 			physics mask, changes the weight and feeling
 			of the car
@@ -21,6 +15,11 @@
 		--- reverse
 		--- achievements
 	
-	later:
+	cleanup:
+		--- should place car spawn points, have objc_world spawn cars
+		--- objc_points state machine & radio events
+		--- objc_veil state machine & radio events
+	
+	come back to:
 		--- points for near misses
 		--- spark particles for drift multiplier
