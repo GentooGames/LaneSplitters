@@ -282,7 +282,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"camera","folderPath":"folders/camera.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"car","folderPath":"folders/car.yy","order":5,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"particles","folderPath":"folders/car/particles.yy","order":4,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"sprites","folderPath":"folders/car/particles/sprites.yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"sprites","folderPath":"folders/car/particles/sprites.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"sprites","folderPath":"folders/car/sprites.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"utility","folderPath":"folders/car/utility.yy","order":5,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"game","folderPath":"folders/game.yy","order":13,},

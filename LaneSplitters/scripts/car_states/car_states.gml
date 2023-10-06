@@ -192,6 +192,7 @@
 					
 					particles_create_tracks();
 					particles_create_smoke();
+					
 		        },
 		        draw:  function() {
 		            __.state.fsm.inherit();
