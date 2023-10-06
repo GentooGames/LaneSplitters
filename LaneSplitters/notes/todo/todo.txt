@@ -2,16 +2,11 @@
 	core 1: 
 		--- moving obstacles (use GM path editor in room)
 		--- heavier physics environmental objects
-		--- changing the size and position of the car's
-			physics mask, changes the weight and feeling
-			of the car
 		--- ending stats screen
 		--- proper settings screen
 		--- leaderboards
 		--- race checkpoints
 		--- multiplayer/coop
-		--- car customization
-		--- mobile export
 		--- reverse
 		--- achievements
 	
@@ -19,6 +14,12 @@
 		--- should place car spawn points, have objc_world spawn cars
 		--- objc_points state machine & radio events
 		--- objc_veil state machine & radio events
+		
+	ideas:
+		--- car customization
+		--- changing the size and position of the car's
+			physics mask, changes the weight and feeling
+			of the car
 	
 	come back to:
 		--- points for near misses
