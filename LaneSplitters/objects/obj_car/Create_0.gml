@@ -44,8 +44,10 @@
 			
 		// events
 		on_initialize(function() {
-			var _player = objc_game.player_get(0);
-			_player.car_assign(self);
+			var _car_index = objc_world.car_get_count();
+			var _player	   = objc_game.player_get(_car_index);
+			_player.car_assign  (self);
+			objc_world.car_stash(self);
 		});
 		
 	#endregion

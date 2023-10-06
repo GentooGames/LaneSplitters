@@ -9,41 +9,50 @@
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 	// objc_world.create //
 	event_inherited();
+	
 	var _self = self;
 	
 	depth = 100;
 
 	// public
-	room_is_track	  = function(_room = room) {
+	room_is_track = function(_room = room) {
 		return (_room != __rm_init
 			&&	_room != __rm_created_by
 			&&	_room != __rm_headphones
 		);
 	};
-	clear_tire_tracks = function() {
-		if (!surface_exists(__.surface_tracks)) {
-			__.surface_tracks = surface_create(room_width, room_height);	
-		}
-		surface_set_target(__.surface_tracks);
-		draw_clear_alpha(c_black, 0);
-		surface_reset_target();
-		return self;
+	car_stash	  = function(_car) {
+		array_push(__.cars, _car);
+	};
+	car_get_count = function() {
+		return array_length(__.cars);	
 	};
 	
 	// private
 	with (__) {
-		shadow_alpha	 = 0.6;
-		shadow_strength	 = 2;
-		shadow_direction = 340;
-		tracks_alpha	 = 0.8;
-		surface_shadows  = surface_create(room_width, room_height);	
-		surface_tracks   = surface_create(room_width, room_height);
-		surface_info	 = surface_create(room_width, room_height);
+		track_clear_tires = method(_self, function() {
+			if (!surface_exists(__.surface_tracks)) {
+				__.surface_tracks = surface_create(room_width, room_height);	
+			}
+			surface_set_target(__.surface_tracks);
+			draw_clear_alpha(c_black, 0);
+			surface_reset_target();
+			return self;
+		});
+		cars			  = [];
+		shadow_alpha	  = 0.6;
+		shadow_strength	  = 2;
+		shadow_direction  = 340;
+		tracks_alpha	  = 0.8;
+		surface_shadows	  = surface_create(room_width, room_height);	
+		surface_tracks	  = surface_create(room_width, room_height);
+		surface_info	  = surface_create(room_width, room_height);
 	};
 	
 	// events
 	on_room_start(function() {
-		clear_tire_tracks();
+		__.cars = [];
+		__.track_clear_tires();
 		if (room_is_track()) {
 			BROADCAST("track_started");
 		}
