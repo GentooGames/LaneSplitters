@@ -3,7 +3,6 @@
 		--- moving obstacles (use GM path editor in room)
 		--- heavier physics environmental objects
 		--- spark particles for drift multiplier
-		--- square drift zones
 	
 	cleanup:
 		--- objc_points state machine & radio events

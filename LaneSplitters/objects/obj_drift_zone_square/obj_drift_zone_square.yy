@@ -1,14 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_drift_zone",
-  "spriteId": null,
+  "name": "obj_drift_zone_square",
+  "spriteId": {
+    "name": "spr_drift_zone_square",
+    "path": "sprites/spr_drift_zone_square/spr_drift_zone_square.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_drift_zone",
+    "path": "objects/obj_drift_zone/obj_drift_zone.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
