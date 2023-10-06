@@ -1,24 +1,27 @@
 	
 	core 1: 
-		moving obstacles (use GM path editor in room)
-		heavier physics environmental objects
-		spark particles for drift multiplier
-		square drift zones
+		--- moving obstacles (use GM path editor in room)
+		--- heavier physics environmental objects
+		--- spark particles for drift multiplier
+		--- square drift zones
 	
 	cleanup:
-		objc_points state machine & radio events
-		objc_veil state machine & radio events
+		--- objc_points state machine & radio events
+		--- objc_veil state machine & radio events
 	
 	bonus:
-		points for near misses
-		ending stats screen
-		proper settings screen
-		leaderboards
-		race checkpoints
-		multiplayer/coop
-		car customization
-		mobile export
-		reverse
-		achievements
+		--- changing the size and position of the car's
+			physics mask, changes the weight and feeling
+			of the car
+		--- points for near misses
+		--- ending stats screen
+		--- proper settings screen
+		--- leaderboards
+		--- race checkpoints
+		--- multiplayer/coop
+		--- car customization
+		--- mobile export
+		--- reverse
+		--- achievements
 	
 	
